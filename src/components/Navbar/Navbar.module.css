@@ -1,0 +1,19 @@
+.nav {
+  grid-area: n;
+}
+
+.item {
+  margin: 24px 0 0 0px;
+
+}
+
+.item a {
+  color: rgb(57, 61, 61);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.item a.active {
+  color: rgb(62, 199, 199);
+  text-decoration: none;
+}

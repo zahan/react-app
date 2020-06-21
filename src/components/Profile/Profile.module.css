@@ -1,0 +1,31 @@
+
+.profileDataWrapper {
+    display: grid;
+    grid-template-areas: "s b";
+    grid-template-columns: 1fr 11fr;
+    grid-gap: 2vw;
+}
+
+    .profileDataWrapper img {
+        grid-area: s;
+        width: 64px;
+        border-radius: 32px;
+    }
+    .profileDataWrapper .profileData {
+        grid-area: b;
+    }
+        .profileDataWrapper .profileData h1 {
+            font-size: 32px;
+            color: rgb(32, 34, 34);
+            font-weight: 600;
+        }
+
+        .profileDataWrapper .profileData p {
+            margin-top: 16px;
+            color: rgb(57, 61, 61);
+            letter-spacing: 0.1em;
+        }
+        .profileDataWrapper .profileData p span {
+            color: rgb(32, 34, 34);
+        }
+

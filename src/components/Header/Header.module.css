@@ -1,0 +1,11 @@
+.header {
+    grid-area: h;
+  }
+  .header h3 {
+
+    font-size: 1em;
+    letter-spacing: 0.1em ;
+    margin-top: 22px;
+    font-weight: 600;
+    color: rgb(57, 61, 61);
+  }

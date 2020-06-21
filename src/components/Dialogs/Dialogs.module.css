@@ -1,0 +1,66 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+
+
+.dialogs .dialogs_list .dialogs_item {
+    margin: 24px 0 0 0px;
+}
+
+.dialogs .dialogs_list .dialogs_item a {
+    color: rgb(57, 61, 61);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+}
+.dialogs .dialogs_list .dialogs_item a.active {
+    color: rgb(62, 199, 199);
+    text-decoration: none;
+  }
+
+
+
+.messages_list .messages_item {
+    display: inline-block;
+    width: 400px;  
+    margin-top: 24px;
+}
+        .messages_item p {
+        float: left;
+        width: 300px;
+        margin: 0px;
+    }
+  
+    .messages_item span {
+    font-size: 12px;
+    float: left;
+    width: 300px;
+    color:  rgb(62, 199, 199);
+    }
+
+     textarea{
+        width: 400px;
+        border-radius: 16px;
+        padding:12px;
+        overflow: hidden;
+        height: 16px;
+        float: left;
+    }
+    button {
+        background-color: rgb(62, 199, 199);
+        border: 0px;
+        border-radius: 16px;
+        color: white;
+        font-size: 16px;
+        padding:12px 24px;
+        display:inline-block;
+        cursor:pointer;
+      
+        margin-left: 16px;
+ 
+    }
+
+    .inputblock {
+        margin-top: 32px;
+    }
