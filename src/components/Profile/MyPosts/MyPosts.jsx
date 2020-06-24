@@ -13,13 +13,12 @@ const MyPosts = (props) => {
     
     let postTextUpdate = (e) => {
         let text = e.target.value
-        props.dispatch(updatePostCreator(text))
-        debugger
+        props.updatePostCreator(text)
     }
 
     let textInput = React.createRef();
     let textInputMess = () => {
-        props.dispatch(addPostActionCreator());
+        props.addPostActionCreator();
     }
 
 

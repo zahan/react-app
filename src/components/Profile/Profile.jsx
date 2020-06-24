@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 
 
@@ -19,7 +19,7 @@ const Profile = (props) => {
                 </div>
             </div>
 
-            <MyPosts state={props.state} dispatch={props.dispatch} />
+            <MyPostsContainer state={props.state} dispatch={props.dispatch} />
 
         </div>
 
