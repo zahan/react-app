@@ -6,17 +6,19 @@ import MyPosts from './MyPosts';
 
 const MyPostsContainer = (props) => {
 
-    let postTextUpdate = (e) => {
-        props.dispatch(updatePostCreator(e))
-    }
+    let dispatch = props.store.dispatch.bind(props.store)
+    let state = props.store.getState()
 
+    let postTextUpdate = (e) => {
+        dispatch(updatePostCreator(e))
+    }
 
     let textInputMess = () => {
-        props.dispatch(addPostActionCreator());
+        dispatch(addPostActionCreator());
     }
 
 
-    return <MyPosts updatePostCreator = {postTextUpdate} addPostActionCreator = {textInputMess} state = {props.state}/>
+    return <MyPosts updatePostCreator = {postTextUpdate} addPostActionCreator = {textInputMess} state = {state}/>
 };
 
 export default MyPostsContainer;

@@ -1,16 +1,15 @@
 import React from 'react';
 import css from './MyPosts.module.css';
 import Post from './Post/Post';
-import { addPostActionCreator, updatePostCreator } from '../../../redux/postReducer';
+
 
 
 
 const MyPosts = (props) => {
 
-    let PostList = props.state.PostData.map(data => (<Post message={data.message} likecount={data.likecount} />))
+    let PostList = props.state.WallPosts.PostData.map(data => (<Post message={data.message} likecount={data.likecount} />))
+    let newPostText = props.state.WallPosts.newPost
 
-    let newPostText = props.state.newPost
-    
     let postTextUpdate = (e) => {
         let text = e.target.value
         props.updatePostCreator(text)

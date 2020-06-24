@@ -19,7 +19,7 @@ const Profile = (props) => {
                 </div>
             </div>
 
-            <MyPostsContainer state={props.state} dispatch={props.dispatch} />
+            <MyPostsContainer store={props.store} />
 
         </div>
 
