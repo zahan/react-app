@@ -6,7 +6,9 @@ import Post from './Post/Post';
 
 
 const MyPosts = (props) => {
-    let PostList = props.state.WallPosts.PostData.map(data => (<Post message={data.message} likecount={data.likecount} />))
+    let newPostText = props.WallPost.newPost
+
+    let PostList = props.WallPost.PostData.map(data => (<Post message={data.message} likecount={data.likecount} />))
 
     let postTextUpdate = (e) => {
         let text = e.target.value
@@ -24,7 +26,7 @@ const MyPosts = (props) => {
         <div className={css.myPostsWrapper}>
             <h2>My posts</h2>
             <div className={css.inputblock}>
-                <textarea ref={textInput} value={props.newPostText} onChange={postTextUpdate} placeholder="Remember, be nice!" cols="30" rows="1"></textarea>
+                <textarea ref={textInput} value={newPostText} onChange={postTextUpdate} placeholder="Remember, be nice!" cols="30" rows="1"></textarea>
                 <button onClick={textInputMess}>Send message</button>
             </div>
             {PostList}
