@@ -7,12 +7,10 @@ import Message from './Message/Message'
 const Dialogs = (props) => {
     
  
-    let DialogList =  props.state2.MessagesDia.DialogsName.map(names => (<DialogItem id={names.id} name={names.name} />))
+    let DialogList =  props.MessagesDia.DialogsName.map(names => (<DialogItem id={names.id} name={names.name} />))
  
-    let MessageList = props.state2.MessagesDia.Messages
+    let MessageList = props.MessagesDia.Messages
         .map(text => (<Message message={text.text} time={text.time} />))
-
-    let newMessage = props.newMessage
 
     let textInput = React.createRef()
     let addMessage = () => {
@@ -32,7 +30,7 @@ const Dialogs = (props) => {
             <div className={css.messages_list}>
                 {MessageList}
                 <div className={css.inputblock}>
-                    <textarea ref={textInput} value={newMessage} onChange={messageChange} placeholder="Remember, be nice!"></textarea>
+                    <textarea ref={textInput} value={props.newMessage} onChange={messageChange} placeholder="Remember, be nice!"></textarea>
                     <button onClick={addMessage}>Send message</button>
                 </div>
             </div>
