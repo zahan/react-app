@@ -8,7 +8,7 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
     let newPostText = props.WallPost.newPost
 
-    let PostList = props.WallPost.PostData.map(data => (<Post message={data.message} likecount={data.likecount} />))
+    let PostList = props.WallPost.PostData.map(data => (<Post message={data.message} key={data.id} likecount={data.likecount} />))
 
     let postTextUpdate = (e) => {
         let text = e.target.value

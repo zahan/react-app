@@ -7,10 +7,10 @@ import Message from './Message/Message'
 const Dialogs = (props) => {
     
  
-    let DialogList =  props.MessagesDia.DialogsName.map(names => (<DialogItem id={names.id} name={names.name} />))
+    let DialogList =  props.MessagesDia.DialogsName.map(names => (<DialogItem id={names.id} key={names.id} name={names.name} />))
  
     let MessageList = props.MessagesDia.Messages
-        .map(text => (<Message message={text.text} time={text.time} />))
+        .map(text => (<Message message={text.text} key={text.id} time={text.time} />))
 
     let textInput = React.createRef()
     let addMessage = () => {

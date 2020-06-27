@@ -3,11 +3,11 @@ const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 
 let initialState = {
     DialogsName: [
-        { id: 1, name: 'Ekaterina' },
-        { id: 2, name: 'Pavel' },
-        { id: 3, name: 'Eva' },
-        { id: 4, name: 'User' },
-        { id: 5, name: 'SuperUser' }
+        { id: 0, name: 'Ekaterina' },
+        { id: 1, name: 'Pavel' },
+        { id: 2, name: 'Eva' },
+        { id: 3, name: 'User' },
+        { id: 4, name: 'SuperUser' }
       ],
       Messages: [
         { id: 1, time: '12:32', text: 'Hello how are you' },
@@ -30,7 +30,7 @@ const messageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newMessageBody: '',
-                Messages: [...state.Messages, {id: 0, time: 2022, text: body}] 
+                Messages: [...state.Messages, {id: 13, time: 2022, text: body}] 
             }
        
         default:
