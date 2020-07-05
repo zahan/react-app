@@ -3,7 +3,7 @@ import * as axios from 'axios'
 import userDefaultPhoto from '../../assets/user.png'
 
 const Users = (props) => {
-    
+    let GetUsers = () => {
     if (props.users.length === 0) {
 
         axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
@@ -11,9 +11,11 @@ const Users = (props) => {
         })
             
  } 
+}
 
     return (
         <div>
+            <button onClick={GetUsers}>Get users</button>
             {props.users.map(u => <div key={u.id}>
                 <img width='40' src={u.photos.small != null ? u.photos.small: userDefaultPhoto } alt='user'/>
                 <span>{u.name}</span><br />
