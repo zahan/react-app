@@ -1,32 +1,41 @@
 import React from 'react'
 import * as axios from 'axios'
 import userDefaultPhoto from '../../assets/user.png'
-
+import css from './users.module.css'
 
 class UsersCl extends React.Component {
 
-    constructor(props){
-        super(props)
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+        componentDidMount() {
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
                 this.props.setUsers(response.data.items)
             })
-    }
+        }
 
-   
 
-    render () {
-    return <div>
-        {/* <button onClick={this.GetUsers}>Get users</button> */}
-        {this.props.users.map(u => <div key={u.id}>
-            <img width='40' src={u.photos.small != null ? u.photos.small : userDefaultPhoto} alt='user' />
-            <span>{u.name}</span><br />
-            <span>{u.status}</span><br />
-            <span>{u.id}</span><br />
-            {/* <span>{u.location.city}</span><br />
+
+    render() {
+
+        let pagesCount =  Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+
+        let pages = []
+        for (let i=1; i <= pagesCount; i++) {
+            pages.push(i)
+        }
+        return <div>
+            <div>
+              {pages.map(n => {return <span className={this.props.currentPage === n && css.selectPage} >{n}</span>} )}
+            </div>
+
+            {this.props.users.map(u => <div key={u.id}>
+                <img width='40' src={u.photos.small != null ? u.photos.small : userDefaultPhoto} alt='user' />
+                <span>{u.name}</span><br />
+                <span>{u.status}</span><br />
+                <span>{u.id}</span><br />
+                {/* <span>{u.location.city}</span><br />
                 <span>{u.location.country}</span><br /> */}
-            {u.followed ? <button onClick={() => { this.props.unfollow(u.id) }} >Follow</button> : <button onClick={() => { this.props.follow(u.id) }}>Unfollow</button>}
-        </div>)}
-    </div>
+                {u.followed ? <button onClick={() => { this.props.unfollow(u.id) }} >Follow</button> : <button onClick={() => { this.props.follow(u.id) }}>Unfollow</button>}
+            </div>)}
+        </div>
     }
 }
 
