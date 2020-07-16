@@ -3,7 +3,7 @@ import React from 'react'
 import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setUsersTotalCountAC, toggleIsFetchingAC } from '../../redux/usersReducer'
 import * as axios from 'axios'
 import Users from './users'
-import preloader from '../../assets/loading.svg'
+import Preloader from '../Misc/preloader'
 
 class UsersAPI extends React.Component {
 
@@ -31,7 +31,7 @@ class UsersAPI extends React.Component {
     render() {
 
         return <> 
-        { this.props.isFetching ? <img src={preloader} alt='preloader'/> : null}
+        { this.props.isFetching ? <Preloader /> : null}
         <Users totalUsersCount={this.props.totalUsersCount}
             pageSize={this.props.pageSize}
             currentPage={this.props.currentPage}
