@@ -17,9 +17,9 @@ const Profile = (props) => {
 
         <div className={css.content}>
             <div className={css.profileDataWrapper}>
-                <img src={props.profile.photos.large != null ? props.profile.photos.large: userDefaultPhoto} alt="Avatar"/>
+                <img src={props.profile.photos.large != null ? props.profile.photos.large : userDefaultPhoto} alt="Avatar"/>
                 <div className={css.profileData}><h1>{props.profile.fullName}</h1>
-                    <p>About: <span>{props.profile.aboutMe != null ? props.profile.aboutMe: 'Отсутствует'}</span></p>
+                    <p>About: <span>{props.profile.aboutMe != null ? props.profile.aboutMe : 'Отсутствует'}</span></p>
                     <p>City: <span>Saint-Petersburg</span></p>
                     <p>Age: <span>23</span></p>
                     <p>Job: <span>Thunderdome</span></p>

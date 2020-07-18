@@ -1,7 +1,5 @@
 import React from 'react';
-
 import './App.css';
-import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import ProfileContainer from './components/Profile/profileContainer';
 import { Route, BrowserRouter } from 'react-router-dom';
@@ -11,6 +9,7 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { Provider } from 'react-redux';
 import UsersContainer from './components/Users/usersContainer';
+import HeaderContainer from './components/Header/headerContainer';
 
 
 
@@ -20,7 +19,7 @@ const App = (props) => {
       <Provider store={props.store}>
         <div className='app-wrapper'>
 
-          <Header />
+          <HeaderContainer />
 
           <Navbar />
 
