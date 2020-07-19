@@ -32,20 +32,20 @@ const Users = (props) => {
                     usersAPI.deleteUsers(u.id)
                     .then(response => {
                         if (response.data.resultCode === 0) {
-                            props.follow(u.id) 
+                            props.unfollow(u.id) 
                         }
                     })
                     
-                }} >Follow</button> 
+                }} >Unfollow</button> 
                 
                 : <button onClick={() => { 
                     usersAPI.postUsers(u.id)
                     .then(response => {
                         if (response.data.resultCode === 0) {
-                            props.unfollow(u.id) 
+                            props.follow(u.id) 
                         }
                     }) 
-                }}>Unfollow</button>
+                }}>Follow</button>
             }
 
         </div>)}
