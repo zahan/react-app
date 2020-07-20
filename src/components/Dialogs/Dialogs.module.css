@@ -61,6 +61,14 @@
  
     }
 
+    button:hover {
+        background-color: rgb(36, 131, 131); 
+    }
+    
+    button:disabled {
+        background-color: rgb(177, 177, 177); 
+    }
+
     .inputblock {
         margin-top: 32px;
     }
