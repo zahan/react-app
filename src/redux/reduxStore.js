@@ -1,9 +1,9 @@
 import postReducer from "./postReducer";
 import messageReducer from "./messageReducer";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import usersReducer from "./usersReducer";
 import authReducer from "./authReducer";
-/* const { createStore, combineReducers } = require("redux"); */
+import thunkMiddleware from 'redux-thunk'
 
 let reducersPack = combineReducers({
     WallPosts: postReducer,
@@ -12,7 +12,7 @@ let reducersPack = combineReducers({
     auth: authReducer
 })
  
-let store = createStore(reducersPack)
+let store = createStore(reducersPack, applyMiddleware(thunkMiddleware))
 
 window.store = store
 
