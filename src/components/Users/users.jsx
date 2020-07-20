@@ -6,6 +6,7 @@ import { followAPI } from '../../api/api'
 
 const Users = (props) => {
 
+    
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
     let pages = []
@@ -28,22 +29,26 @@ const Users = (props) => {
             <span>{u.id}</span><br />
 
             {u.followed 
-                ? <button onClick={() => { 
+                ? <button disabled={props.followingInProgress} onClick={() => { 
+                    props.toggleFollowingInProgress(true)
                     followAPI.deleteUsers(u.id)
                     .then(response => {
                         if (response.resultCode === 0) {
                             props.unfollow(u.id) 
                         }
+                        props.toggleFollowingInProgress(false)
                     })
                     
                 }} >Unfollow</button> 
                 
-                : <button onClick={() => { 
+                : <button disabled={props.followingInProgress} onClick={() => { 
+                    props.toggleFollowingInProgress(true)
                     followAPI.postUsers(u.id)
                     .then(response => {
                         if (response.resultCode === 0) {
                             props.follow(u.id) 
                         }
+                        props.toggleFollowingInProgress(false)
                     }) 
                 }}>Follow</button>
             }
