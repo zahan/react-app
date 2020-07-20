@@ -14,6 +14,11 @@ export const usersAPI = {
             .then(response => {
                 return response.data
             })
+    },
+
+    getProfile(userId) {
+        return instance.get(`profile/` + userId)
+            
     }
 }
 
@@ -35,7 +40,7 @@ export const followAPI = {
 }
 
 export const authAPI = {
-    getAuth () {
+    getAuth() {
         return instance.get(`auth/me`)
             .then(response => {
                 return response.data
