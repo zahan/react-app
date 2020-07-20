@@ -10,6 +10,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { Provider } from 'react-redux';
 import UsersContainer from './components/Users/usersContainer';
 import HeaderContainer from './components/Header/headerContainer';
+import Login from './components/Login/login';
 
 
 
@@ -30,6 +31,7 @@ const App = (props) => {
             <Route path='/news' component={News} />
             <Route path='/music' component={Music} />
             <Route path='/settings' component={Settings} />
+            <Route path='/login' render={() => <Login />} />
           </div>
 
         </div>
