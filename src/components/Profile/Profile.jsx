@@ -9,6 +9,7 @@ import userDefaultPhoto from '../../assets/user.png'
 
 const Profile = (props) => {
 
+
     if (!props.profile) {
         return <Preloader/>
     }
