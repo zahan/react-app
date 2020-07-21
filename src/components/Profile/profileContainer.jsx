@@ -17,18 +17,14 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-
-        
-
         return <Profile {...this.props} profile={this.props.profile} />
     }
 }
 
 let AuthRedirectContainer = withAuthRedirect(ProfileContainer)
 
-const mapStateToProps = (state) => ({
+let mapStateToProps = (state) => ({
     profile: state.WallPosts.profile,
-    isAuth: state.auth.isAuth
 })
 
 let ProfileContainerWithUrl = withRouter(AuthRedirectContainer)
