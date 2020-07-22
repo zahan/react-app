@@ -2,13 +2,10 @@ import React from 'react';
 import css from './Profile.module.css';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import Preloader from '../Misc/preloader';
-import userDefaultPhoto from '../../assets/user.png'
-
-
-
+import userDefaultPhoto from '../../assets/user.png';
+import ProfileStatus from './profileStatus';
 
 const Profile = (props) => {
-
 
     if (!props.profile) {
         return <Preloader/>
@@ -20,6 +17,7 @@ const Profile = (props) => {
             <div className={css.profileDataWrapper}>
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : userDefaultPhoto} alt="Avatar"/>
                 <div className={css.profileData}><h1>{props.profile.fullName}</h1>
+                    <ProfileStatus status={props.profile.aboutMe}/>
                     <p>About: <span>{props.profile.aboutMe != null ? props.profile.aboutMe : 'Отсутствует'}</span></p>
                     <p>City: <span>Saint-Petersburg</span></p>
                     <p>Age: <span>23</span></p>
