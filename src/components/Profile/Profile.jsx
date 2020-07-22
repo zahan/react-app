@@ -18,7 +18,7 @@ const Profile = (props) => {
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : userDefaultPhoto} alt="Avatar"/>
                 <div className={css.profileData}><h1>{props.profile.fullName}</h1>
                     <ProfileStatus status={props.profile.aboutMe}/>
-                    <p>About: <span>{props.profile.aboutMe != null ? props.profile.aboutMe : 'Отсутствует'}</span></p>
+                    {/* <p>About: <span>{props.profile.aboutMe != null ? props.profile.aboutMe : 'Отсутствует'}</span></p> */}
                     <p>City: <span>Saint-Petersburg</span></p>
                     <p>Age: <span>23</span></p>
                     <p>Job: <span>Thunderdome</span></p>
