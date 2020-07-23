@@ -16,11 +16,11 @@ const Profile = (props) => {
             <div className={css.profileDataWrapper}>
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : userDefaultPhoto} alt="Avatar"/>
                 <div className={css.profileData}><h1>{props.profile.fullName}</h1>
-                    <ProfileStatus status={props.status}/>
+                    <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} />
                     <p>City: <span>Saint-Petersburg</span></p>
                     <p>Age: <span>23</span></p>
                     <p>Job: <span>Thunderdome</span></p>
-                    <p>Proffession: <span>Top Fighter</span></p>
+                    <p>Proffession: <span>Top Fighter 9087</span></p>
                 </div>
             </div>
 
