@@ -48,16 +48,8 @@ const postReducer = (state = initialState, action) => {
 
 
 }
-export const addPostActionCreator = () => {
-    return { type: ADD_POST }
-}
-
-export const updatePostCreator = (text) => {
-    return {
-        type: UPDATE_POST,
-        postText: text
-    }
-}
+export const addPostActionCreator = () => { return { type: ADD_POST }}
+export const updatePostCreator = (text) => {return {type: UPDATE_POST, postText: text}}
 
 export const setUserProfile = (profile) => { return { type: SET_USER_PROFILE, profile } }
 export const setUserStatus = (status) => { return { type: SET_USER_STATUS, status } }
@@ -67,6 +59,15 @@ export const getUserProfile = (userId) => {
         usersAPI.getProfile(userId)
             .then(response => {
                 dispatch(setUserProfile(response.data))
+            })
+    }
+}
+
+export const getUserStatus = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId)
+            .then(response => {
+                dispatch(setUserStatus(response.data))
             })
     }
 }
