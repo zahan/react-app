@@ -4,19 +4,8 @@ import Post from './Post/Post';
 import { Field, reduxForm } from 'redux-form';
 
 const MyPosts = (props) => {
-    /* let newPostText = props.WallPost.newPost */
 
     let PostList = props.WallPost.PostData.map(data => (<Post message={data.message} key={data.id} likecount={data.likecount} />))
-
-/*     let postTextUpdate = (e) => {
-        let text = e.target.value
-        props.updatePostCreator(text)
-    }
-
-    let textInput = React.createRef();
-    let textInputMess = () => {
-        props.addPostActionCreator();
-    } */
 
     let newPostFromForm = (values) => {
         props.addPostActionCreator(values.newPostText)
