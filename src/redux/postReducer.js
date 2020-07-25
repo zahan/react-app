@@ -28,7 +28,7 @@ const postReducer = (state = initialState, action) => {
             }
 
         case ADD_POST:
-            let newPostMessage = state.newPost
+            let newPostMessage = action.newPostText
             return {
                 ...state,
                 newPost: '',
@@ -48,7 +48,7 @@ const postReducer = (state = initialState, action) => {
 
 
 }
-export const addPostActionCreator = () => { return { type: ADD_POST }}
+export const addPostActionCreator = (newPostText) => { return { type: ADD_POST, newPostText }}
 export const updatePostCreator = (text) => {return {type: UPDATE_POST, postText: text}}
 
 export const setUserProfile = (profile) => { return { type: SET_USER_PROFILE, profile } }

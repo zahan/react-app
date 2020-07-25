@@ -1,16 +1,14 @@
 import React from 'react';
 import css from './MyPosts.module.css';
 import Post from './Post/Post';
-
-
-
+import { Field, reduxForm } from 'redux-form';
 
 const MyPosts = (props) => {
-    let newPostText = props.WallPost.newPost
+    /* let newPostText = props.WallPost.newPost */
 
     let PostList = props.WallPost.PostData.map(data => (<Post message={data.message} key={data.id} likecount={data.likecount} />))
 
-    let postTextUpdate = (e) => {
+/*     let postTextUpdate = (e) => {
         let text = e.target.value
         props.updatePostCreator(text)
     }
@@ -18,21 +16,32 @@ const MyPosts = (props) => {
     let textInput = React.createRef();
     let textInputMess = () => {
         props.addPostActionCreator();
+    } */
+
+    let newPostFromForm = (values) => {
+        props.addPostActionCreator(values.newPostText)
     }
 
-
     return (
-
         <div className={css.myPostsWrapper}>
             <h2>My posts</h2>
-            <div className={css.inputblock}>
-                <textarea ref={textInput} value={newPostText} onChange={postTextUpdate} placeholder="Remember, be nice!" cols="30" rows="1"></textarea>
-                <button onClick={textInputMess}>Send message</button>
-            </div>
+            <AddPostFormRedux onSubmit={newPostFromForm}/>
             {PostList}
         </div>
-
     )
 };
+
+const addPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className={css.inputblock}>
+                <Field component='textarea' name='newPostText' placeholder="Remember, be nice!"/>
+                <button>Send message</button>
+            </div>
+        </form>
+    )
+}
+
+const AddPostFormRedux = reduxForm ({ form: 'addPostOnMyWall' }) (addPostForm)
 
 export default MyPosts;
