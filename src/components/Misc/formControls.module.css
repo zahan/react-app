@@ -1,10 +1,9 @@
-.formControl {
 
+
+.formControl .error {
+    border: solid tomato 2px;
 }
 
-.error input,
-.error {
-    border: solid tomato 1px;
-
+.formControl span {
+    color: tomato;
 }
-
